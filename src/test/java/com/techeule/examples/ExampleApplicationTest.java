@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 
 class ExampleApplicationTest {
 
-    @Test
-    void simpleTest() {
-        Assertions.assertThat(1 + 1).isEqualTo(4 / 2);
-    }
+  @Test
+  void simpleTest() {
+    Assertions.assertThat(1 + 1).isEqualTo(4 / 2);
+  }
 }

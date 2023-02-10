@@ -15,7 +15,7 @@ At [TechEule.com](https://techeule.com/) you can find more info about this repos
 - Maven 3.8 or newer
 
 ## How to run and build this project
- 
+
 > ...
 
 ## Resources
