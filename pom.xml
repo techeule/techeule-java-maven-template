@@ -8,6 +8,11 @@
     <artifactId>techeule-java-maven-template</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <name>TechEule.com :: ${project.artifactId}</name>
+    <description>
+        Simple Template for Java 17 Project to start new tutorials and projects.
+    </description>
+
     <contributors>
         <contributor>
             <name>Wassim Akachi</name>
@@ -33,32 +38,11 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <avro.version>1.11.1</avro.version>
         <junit-jupiter.version>5.9.1</junit-jupiter.version>
         <assertj-core.version>3.23.1</assertj-core.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.apache.avro</groupId>
-            <artifactId>avro</artifactId>
-            <version>${avro.version}</version>
-            <exclusions>
-                <exclusion>
-                    <!-- Vulnerabilities: CVE-2022-42004 and CVE-2022-42003 -->
-                    <groupId>com.fasterxml.jackson.core</groupId>
-                    <artifactId>jackson-databind</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <!-- Fixed Vulnerabilities: CVE-2022-42004 and CVE-2022-42003 -->
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.12.7.1</version>
-        </dependency>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -75,23 +59,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.avro</groupId>
-                <artifactId>avro-maven-plugin</artifactId>
-                <version>${avro.version}</version>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>schema</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDirectory>${project.basedir}/src/main/resources/avro-schemas</sourceDirectory>
-                            <stringType>String</stringType>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
