@@ -30,8 +30,14 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Build with Maven
-        run: mvn -V -B package --file pom.xml
+      - name: Build
+        run: mvn -V -B clean package --file pom.xml -DskipTests
+
+      - name: Tests
+        run: mvn -V -B verify --file pom.xml
+
+      - name: Code Analysis - spotbugs
+        run: mvn -V -B --file pom.xml spotbugs:spotbugs spotbugs:check spotbugs:verify -Ddetail=true
 
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
       - name: Update dependency graph
